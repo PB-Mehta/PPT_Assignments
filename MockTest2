@@ -1,0 +1,54 @@
+Given a non-negative integer x, return the square root of x rounded down to the nearest integer. 
+The returned integer should be non-negative as well. 
+You must not use any built-in exponent function or operator. 
+
+def Sqrt(x):
+    if x == 0:
+        return 0
+
+    left, right = 1, x
+    while left <= right:
+        mid = left + (right - left) // 2
+        if mid * mid > x:
+            right = mid - 1
+        else:
+            left = mid + 1
+
+    return left - 1
+		
+		
+		
+You are given two non-empty linked lists representing two non-negative integers. 
+The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.		
+		
+		
+		
+def addTwoNumbers(l1, l2):
+    dummy = ListNode()  # Dummy node to simplify the code
+    curr = dummy        # Current node for constructing the result linked list
+    carry = 0           # Carry for addition
+
+    while l1 or l2 or carry:
+        # Calculate the sum of the current digits and the carry
+        sum = carry
+        if l1:
+            sum += l1.val
+            l1 = l1.next
+        if l2:
+            sum += l2.val
+            l2 = l2.next
+
+        # Create a new node with the digit sum % 10 and update the carry
+        curr.next = ListNode(sum % 10)
+        curr = curr.next
+        carry = sum // 10
+
+    return dummy.next  # Return the result linked list (excluding the dummy node)
+
+
+
+
+
+
+
