@@ -1,0 +1,69 @@
+ QUES 1 .Implement a stack using a list in Python. Include the necessary methods such as push, pop, and isEmpty.
+
+
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.isEmpty():
+            return self.items.pop()
+        else:
+            raise IndexError("Cannot pop from an empty stack")
+
+    def isEmpty(self):
+        return len(self.items) == 0
+
+CODE IMPLEMENTATION:
+stack = Stack()
+
+stack.push(1)
+stack.push(2)
+stack.push(3)
+
+print(stack.pop())  # Output: 3
+print(stack.pop())  # Output: 2
+print(stack.isEmpty())  # Output: False
+
+stack.pop()  # Output: 1
+
+print(stack.isEmpty())  # Output: True
+
+
+QUES 2 . Implement a queue using a list in Python. Include the necessary methods such as enqueue, dequeue, and isEmpty.
+
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def enqueue(self, item):
+        self.items.append(item)
+
+    def dequeue(self):
+        if not self.isEmpty():
+            return self.items.pop(0)
+        else:
+            raise IndexError("Cannot dequeue from an empty queue")
+
+    def isEmpty(self):
+        return len(self.items) == 0
+
+CODE IMPLEMENTATION :
+queue = Queue()
+
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
+
+print(queue.dequeue())  # Output: 1
+print(queue.dequeue())  # Output: 2
+print(queue.isEmpty())  # Output: False
+
+queue.dequeue()  # Output: 3
+
+print(queue.isEmpty())  # Output: True
+
+
