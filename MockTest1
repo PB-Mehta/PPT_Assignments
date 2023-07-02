@@ -1,0 +1,35 @@
+QUES1. 
+def even_numbers(input_list):
+    return [num for num in input_list if num % 2 == 0]
+
+QUES2.
+import time
+
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()  # Get the current time before executing the function
+        result = func(*args, **kwargs)  # Execute the decorated function
+        end_time = time.time()  # Get the current time after executing the function
+        execution_time = end_time - start_time  # Calculate the execution time
+        print(f"The function {func.__name__} took {execution_time} seconds to execute.")
+        return result
+    return wrapper
+
+
+QUES3.
+def calculate_mean(numbers):
+    if len(numbers) == 0:
+        return None  # Handle the case where the list is empty
+    total_sum = sum(numbers)
+    count = len(numbers)
+    mean = total_sum / count
+    return mean
+
+
+QUES4.
+from scipy.stats import ttest_ind
+
+def perform_hypothesis_test(sample1, sample2):
+    t_statistic, p_value = ttest_ind(sample1, sample2)
+    return p_value
+
